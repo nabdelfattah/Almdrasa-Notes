@@ -1,0 +1,69 @@
+@use "../mixins";
+
+.section-menue {
+  background-color: var(--color-gray3);
+  border-right: 1px solid var(--color-gray2);
+}
+.menue__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.icon-menue,
+.icon-search {
+  cursor: pointer;
+  display: none;
+}
+.menue__logo {
+  @include mixins.font($size: 1.5rem, $lineHeight: 1.7rem);
+  font-family: var(--font-family-logo);
+  color: var(--color-accent);
+  padding: 4.2rem 4rem 0;
+}
+
+.menue__form {
+  max-width: 21rem;
+  margin: 0 2.4rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: 7px;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: var(--color-gray1);
+  background-color: var(--color-white);
+  overflow: hidden;
+  margin-top: 5.6rem;
+  margin-bottom: 3.6rem;
+}
+.menue__input {
+  border: none;
+  max-width: 17rem;
+}
+
+.menue__nav {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.4rem;
+  margin: 0 3rem;
+  color: var(--color-gray1);
+}
+.menue__link {
+  padding: 0 0.7rem;
+  @include mixins.bodyLg();
+}
+.menue__link-selected {
+  color: var(--color-primary);
+  position: relative;
+  transition: var(--timing-animation);
+}
+.menue__link-selected::before {
+  content: "";
+  display: block;
+  border-left: 3px solid var(--color-accent);
+  position: absolute;
+  width: 3px;
+  height: 20px;
+  left: 0px;
+  top: 2px;
+}

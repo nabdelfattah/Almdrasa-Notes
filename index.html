@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Aclonica&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Aclonica&family=Inter:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles/styles.scss" />
+    <script src="scripts/script.js" defer type="module"></script>
+    <title>Almdrasa-Notes</title>
+  </head>
+  <body>
+    <div class="container grid grid--2-cols">
+      <section class="section-menue">
+        <header class="menue__header">
+          <img
+            src="images/Menu.svg"
+            alt="menue button"
+            class="icon icon-menue"
+            aria-label="Menue button"
+            tabindex="0"
+            role="button"
+          />
+          <p class="menue__logo">Almdrasa-Notes</p>
+          <svg
+            class="icon icon-search"
+            aria-label="search button"
+            tabindex="0"
+            role="button"
+            width="20"
+            height="20"
+            viewBox="0 0 20 20"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g clip-path="url(#clip0_357_13)">
+              <path
+                d="M9.06226 15.625C12.6866 15.625 15.6248 12.6869 15.6248 9.0625C15.6248 5.43813 12.6866 2.5 9.06226 2.5C5.43789 2.5 2.49976 5.43813 2.49976 9.0625C2.49976 12.6869 5.43789 15.625 9.06226 15.625Z"
+                stroke="currentcolor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M13.7024 13.7031L17.4993 17.5"
+                stroke="currentcolor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </g>
+            <defs>
+              <clipPath id="clip0_357_13">
+                <rect width="20" height="20" fill="white" />
+              </clipPath>
+            </defs>
+          </svg>
+        </header>
+        <form class="menue__form">
+          <svg
+            class="icon icon-form__search"
+            width="20"
+            height="20"
+            viewBox="0 0 20 20"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g clip-path="url(#clip0_357_13)">
+              <path
+                d="M9.06226 15.625C12.6866 15.625 15.6248 12.6869 15.6248 9.0625C15.6248 5.43813 12.6866 2.5 9.06226 2.5C5.43789 2.5 2.49976 5.43813 2.49976 9.0625C2.49976 12.6869 5.43789 15.625 9.06226 15.625Z"
+                stroke="currentcolor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M13.7024 13.7031L17.4993 17.5"
+                stroke="currentcolor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </g>
+            <defs>
+              <clipPath id="clip0_357_13">
+                <rect width="20" height="20" fill="white" />
+              </clipPath>
+            </defs>
+          </svg>
+          <input
+            type="text"
+            class="menue__input"
+            name="q"
+            placeholder="Search"
+          />
+        </form>
+        <nav class="menue__nav">
+          <button class="menue__link">Notes</button>
+          <button class="menue__link menue__link-selected">Add Note</button>
+        </nav>
+      </section>
+
+      <section class="section-content">
+        <div class="content-wrapper__add-note">
+          <h1 class="heading-primary">Add Note</h1>
+
+          <form class="add-note__form" action="post">
+            <div class="add-note__input-wrapper">
+              <label for="title" class="add-note__label">Title*</label>
+              <input id="title" type="text" class="add-note__input" />
+            </div>
+            <div class="add-note__input-wrapper">
+              <label for="author" class="add-note__label">Author*</label>
+              <input id="author" type="text" class="add-note__input" />
+            </div>
+            <div class="add-note__input-wrapper">
+              <label for="yourNote" class="add-note__label">Your Note*</label>
+              <textarea
+                id="yourNote"
+                type="text"
+                class="add-note__input"
+              ></textarea>
+            </div>
+            <div class="add-note__btns">
+              <input class="btn btn-primary" value="Add Note" type="submit" />
+              <input
+                class="btn btn-primary"
+                value="Add pinned note"
+                type="submit"
+              />
+            </div>
+          </form>
+        </div>
+
+        <div class="content-wrapper__notes">
+          <div class="notes__index">
+            <div class="index__pinned">
+              <h2 class="index-type">Pinned</h2>
+              <article class="note" tabindex="0">
+                <p class="note-title">Light & Bright in Brooklyn</p>
+                <p class="note-content">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+                  at arcu dui.
+                </p>
+                <div class="note-wrapper">
+                  <p class="note-date">Feb 8, 2021</p>
+                  <button class="note-btn">Delete</button>
+                </div>
+              </article>
+            </div>
+            <div class="index__unpinned">
+              <h2 class="index-type">Notes</h2>
+              <article class="note" tabindex="0">
+                <p class="note-title">
+                  Business Partners Work at Modern Office
+                </p>
+                <p class="note-content">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+                  at arcu dui.
+                </p>
+                <div class="note-wrapper">
+                  <p class="note-date">Feb 8, 2021</p>
+                  <button class="note-btn">Delete</button>
+                </div>
+              </article>
+              <article class="note note--selected" tabindex="0">
+                <p class="note-title">Light & Bright in Brooklyn</p>
+                <p class="note-content">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+                  at arcu dui.
+                </p>
+                <div class="note-wrapper">
+                  <p class="note-date">Feb 8, 2021</p>
+                  <button class="note-btn">Delete</button>
+                </div>
+              </article>
+              <article class="note" tabindex="0">
+                <p class="note-title">
+                  Business Partners Work at Modern Office
+                </p>
+                <p class="note-content">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+                  at arcu dui.
+                </p>
+                <div class="note-wrapper">
+                  <p class="note-date">Feb 8, 2021</p>
+                  <button class="note-btn">Delete</button>
+                </div>
+              </article>
+              <article class="note" tabindex="0">
+                <p class="note-title">
+                  Business Partners Work at Modern Office
+                </p>
+                <p class="note-content">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+                  at arcu dui.
+                </p>
+                <div class="note-wrapper">
+                  <p class="note-date">Feb 8, 2021</p>
+                  <button class="note-btn">Delete</button>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <button tabindex="0" aria-label="Hide notes" class="btn-hide">
+            <img src="./images/left-arrow.svg" />
+          </button>
+
+          <div class="notes__review">
+            <h2 class="note-review__note-heading">
+              Business Partners Work at Modern Office
+            </h2>
+            <p class="note-review__author">Feb 8, 2021 / By Yousef</p>
+            <p class="note-review__note-content">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at
+              arcu dui. Lorem ipsum dolor sit amet, consectetur adipisce
+              placerat mauris nisl. Proin vitae urna eu sem pellentesque
+              laoreet.<br />
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at
+              arcu dui. Lorem ipsum dolor sit amet, consectetur adipisce
+              placerat mauris nisl. Proin vitae urna eu sem pellentesque
+              laoreet. <br />
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at
+              arcu dui. Lorem ipsum dolor sit amet, consectetur adipisce
+              placerat mauris nisl. Proin vitae urna eu sem pellentesque
+              laoreet. <br />
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at
+              arcu dui. Lorem ipsum dolor sit amet, consectetur adipisce
+              placerat mauris nisl. Proin vitae urna eu sem pellentesque
+              laoreet.<br />
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at
+              arcu dui. Lorem ipsum dolor sit amet, consectetur adipisce
+              placerat mauris nisl. Proin vitae urna eu sem pellentesque
+              laoreet.<br />
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at
+              arcu dui. Lorem ipsum dolor sit amet, consectetur adipisce
+              placerat mauris nisl. Proin vitae urna eu sem pellentesque
+              laoreet.<br />
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at
+              arcu dui. Lorem ipsum dolor sit amet, consectetur adipisce
+              placerat mauris nisl. Proin vitae urna eu sem pellentesque
+              laoreet.
+            </p>
+          </div>
+
+          <button class="btn-add">
+            <img src="images/plus.svg" alt="add note" />
+          </button>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>

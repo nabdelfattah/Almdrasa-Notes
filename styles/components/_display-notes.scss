@@ -1,0 +1,113 @@
+@use "../mixins";
+
+.content-wrapper__notes {
+  display: grid;
+  grid-template-columns: 32.2rem 0 auto 1fr;
+}
+
+// INDEX
+.notes__index {
+  width: 32.2rem;
+  background-color: var(--color-white);
+  border-right: 1px solid var(--color-gray2);
+  min-height: 100vh;
+  padding: 3.8rem 0;
+  position: relative;
+}
+
+.index__pinned {
+  .index-type {
+    margin-bottom: -1.1rem;
+  }
+}
+.index__unpinned {
+  .index-type {
+    margin: 0.4rem 0;
+    border-top: 1px solid var(--color-gray2);
+    border-bottom: 1px solid var(--color-gray2);
+  }
+}
+.index-type {
+  @include mixins.bodySm();
+  text-transform: uppercase;
+  padding: 1rem 2.9rem;
+  color: var(--color-accent);
+}
+
+.note {
+  width: 29.8rem;
+  padding: 1.7rem;
+  margin: 0.3rem 1.2rem;
+  @include mixins.bodySm();
+  color: var(--color-gray1);
+}
+.note--selected {
+  background-color: var(--color-gray3);
+}
+.note-title {
+  @include mixins.bodyLg();
+  color: var(--color-primary);
+}
+
+.note-wrapper {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2.1rem;
+}
+
+.note-btn {
+  color: var(--color-error);
+}
+
+// HIDE BUTTON
+.btn-hide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 2.8rem;
+  width: 2.8rem;
+  border-radius: 50%;
+  margin-top: 12.917rem;
+  transform: translateX(-50%);
+  border: 1px solid var(--color-gray2);
+  background-color: var(--color-white);
+  cursor: pointer;
+}
+
+// NOTE REVIEW
+.notes__review {
+  margin: 11.4rem 2.6rem 2.6rem 9.9rem;
+  width: 60.8rem;
+  position: relative;
+}
+.note-review__note-heading {
+  @include mixins.heading1();
+  margin-bottom: 1.2rem;
+}
+.note-review__author {
+  @include mixins.bodySm();
+  color: var(--color-gray1);
+  margin-bottom: 3.9rem;
+}
+.note-review__note-content {
+  @include mixins.bodyLg();
+}
+
+// ADD NOTE BUTTON
+.btn-add {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 6.5rem;
+  width: 6.5rem;
+  border-radius: 50%;
+  background-color: var(--color-accent);
+  transition: var(--timing-animation);
+  margin-top: 100vh;
+  transform: translateY(-120%);
+  box-shadow: 0 2rem 2rem rgba(236, 112, 96, 0.26);
+}
+.btn-add:hover {
+  background-color: var(--color-hover);
+  box-shadow: 0 2rem 2rem var(--color-white);
+}
