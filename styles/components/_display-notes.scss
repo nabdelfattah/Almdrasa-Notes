@@ -3,6 +3,7 @@
 .content-wrapper__notes {
   display: grid;
   grid-template-columns: 32.2rem 0 auto 1fr;
+  display: none;
 }
 
 // INDEX
@@ -40,6 +41,10 @@
   margin: 0.3rem 1.2rem;
   @include mixins.bodySm();
   color: var(--color-gray1);
+  cursor: pointer;
+}
+.note:hover {
+  background-color: var(--color-gray3);
 }
 .note--selected {
   background-color: var(--color-gray3);
@@ -57,6 +62,13 @@
 
 .note-btn {
   color: var(--color-error);
+  border-bottom: 1px solid transparent;
+  margin-bottom: -2px;
+  transition: var(--timing-animation);
+}
+.note-btn:hover {
+  border-bottom: 1px solid currentColor;
+  color: var(--color-hover);
 }
 
 // HIDE BUTTON
@@ -72,12 +84,16 @@
   border: 1px solid var(--color-gray2);
   background-color: var(--color-white);
   cursor: pointer;
+  transition: var(--timing-animation);
+}
+.btn-hide:hover {
+  border: 1px solid var(--color-hover);
 }
 
 // NOTE REVIEW
 .notes__review {
   margin: 11.4rem 2.6rem 2.6rem 9.9rem;
-  width: 60.8rem;
+  max-width: 60.8rem;
   position: relative;
 }
 .note-review__note-heading {
@@ -103,7 +119,7 @@
   border-radius: 50%;
   background-color: var(--color-accent);
   transition: var(--timing-animation);
-  margin-top: 100vh;
+  margin: 100vh 2rem 1rem 0;
   transform: translateY(-120%);
   box-shadow: 0 2rem 2rem rgba(236, 112, 96, 0.26);
 }

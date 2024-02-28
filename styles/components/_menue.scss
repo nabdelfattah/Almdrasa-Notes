@@ -3,6 +3,11 @@
 .section-menue {
   background-color: var(--color-gray3);
   border-right: 1px solid var(--color-gray2);
+  position: relative;
+  transition: var(--timing-animation);
+}
+.btn-close-menue {
+  display: none;
 }
 .menue__header {
   display: flex;
@@ -19,11 +24,13 @@
   font-family: var(--font-family-logo);
   color: var(--color-accent);
   padding: 4.2rem 4rem 0;
+  pointer-events: none;
+  user-select: none;
 }
 
 .menue__form {
   max-width: 21rem;
-  margin: 0 2.4rem;
+  margin: 5.6rem 2.4rem 3.6rem;
   padding: 0.4rem 0.8rem;
   border-radius: 7px;
   display: flex;
@@ -32,8 +39,6 @@
   color: var(--color-gray1);
   background-color: var(--color-white);
   overflow: hidden;
-  margin-top: 5.6rem;
-  margin-bottom: 3.6rem;
 }
 .menue__input {
   border: none;
@@ -51,11 +56,14 @@
 .menue__link {
   padding: 0 0.7rem;
   @include mixins.bodyLg();
+  transition: var(--timing-animation);
+}
+.menue__link:hover {
+  color: var(--color-hover);
 }
 .menue__link-selected {
   color: var(--color-primary);
   position: relative;
-  transition: var(--timing-animation);
 }
 .menue__link-selected::before {
   content: "";

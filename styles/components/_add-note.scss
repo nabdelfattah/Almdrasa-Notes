@@ -1,8 +1,8 @@
 @use "../mixins";
 
 .content-wrapper__add-note {
-  margin: 11.4rem 0 0 20.3rem;
-  display: none;
+  margin: 11.4rem 2rem 0 20.3rem;
+  // display: none;
 }
 .add-note__form {
   display: flex;
@@ -13,6 +13,7 @@
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  width: 50rem;
 }
 .add-note__label {
   @include mixins.bodySm();
@@ -23,7 +24,8 @@
   border-radius: 7px;
   border: none;
   padding: 0.9rem;
-  width: 50rem;
+  max-width: 50rem;
+  min-width: 28.8rem;
 }
 textarea {
   height: 15rem;

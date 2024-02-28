@@ -68,6 +68,7 @@ button {
 ////////////////////////////////////////
 .container {
   height: 100vh;
+  transition: var(--timing-animation);
 }
 .grid {
   display: grid;
