@@ -1,4 +1,7 @@
 import { getDate } from './helper';
+import { Notes } from './notes';
+
+const notesObj = new Notes([]);
 
 /// /////////////////////////////////////////////////////////
 /// EXPORTED DOM ELEMENTS
@@ -90,15 +93,25 @@ function navLinkHandler(e) {
 
 function addHandler(e) {
   e.preventDefault();
-  console.log('you added the following note:');
-  console.log(getNoteValues());
+  const noteValues = getNoteValues();
+  if (!noteValues) {
+    alert('Please fill the required inputs.');
+    return;
+  }
+  noteValues.type = 'normal';
+  notesObj.addNote(noteValues);
   resetAddNoteForm();
 }
 
 function addPinnedHandler(e) {
   e.preventDefault();
-  console.log('you added pinned note:');
-  console.log(getNoteValues());
+  const noteValues = getNoteValues();
+  if (!noteValues) {
+    alert('Please fill the required inputs.');
+    return;
+  }
+  noteValues.type = 'pinned';
+  notesObj.addNote(noteValues);
   resetAddNoteForm();
 }
 

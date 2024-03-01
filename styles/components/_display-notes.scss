@@ -4,7 +4,7 @@
   display: grid;
   grid-template-columns: 32.2rem 0 auto 1fr;
   transition: var(--timing-animation);
-  // display: none;
+  display: none;
 }
 
 // INDEX
@@ -38,6 +38,7 @@
 
 .note {
   width: 29.8rem;
+  max-height: 20rem;
   padding: 1.7rem;
   margin: 0.3rem 1.2rem;
   @include mixins.bodySm();
@@ -47,12 +48,19 @@
 .note:hover {
   background-color: var(--color-gray3);
 }
+.note * {
+  overflow: hidden;
+}
 .note--selected {
   background-color: var(--color-gray3);
 }
 .note-title {
   @include mixins.bodyLg();
   color: var(--color-primary);
+  max-height: 5.4rem;
+}
+.note-content {
+  max-height: 4rem;
 }
 
 .note-wrapper {

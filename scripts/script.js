@@ -1,9 +1,9 @@
 import {
   addHandler,
   addPinnedHandler,
-  btnAddNote,
-  btnAddPinnedNote,
-  formMenueEl, navEl, navLinkHandler, searchNotesHandler,
+  btnAddNote, btnAddPinnedNote, formMenueEl, navEl,
+  navLinkHandler,
+  searchNotesHandler,
 } from './DOM-vendor';
 
 // App Events
