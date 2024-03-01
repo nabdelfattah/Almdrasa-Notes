@@ -108,8 +108,10 @@
           </form>
         </div>
         <nav class="menue__nav">
-          <button class="menue__link">Notes</button>
-          <button class="menue__link menue__link-selected">Add Note</button>
+          <button class="menue__link" data-role="notes">Notes</button>
+          <button class="menue__link menue__link-selected" data-role="new">
+            Add Note
+          </button>
         </nav>
       </section>
 
@@ -129,14 +131,20 @@
             <div class="add-note__input-wrapper">
               <label for="yourNote" class="add-note__label">Your Note*</label>
               <textarea
-                id="yourNote"
+                id="noteContent"
                 type="text"
                 class="add-note__input"
               ></textarea>
             </div>
             <div class="add-note__btns">
-              <input class="btn btn-primary" value="Add Note" type="submit" />
               <input
+                data-role="add"
+                class="btn btn-primary"
+                value="Add Note"
+                type="submit"
+              />
+              <input
+                data-role="addPinned"
                 class="btn btn-primary"
                 value="Add pinned note"
                 type="submit"

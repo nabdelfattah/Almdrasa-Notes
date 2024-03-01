@@ -3,7 +3,8 @@
 .content-wrapper__notes {
   display: grid;
   grid-template-columns: 32.2rem 0 auto 1fr;
-  display: none;
+  transition: var(--timing-animation);
+  // display: none;
 }
 
 // INDEX

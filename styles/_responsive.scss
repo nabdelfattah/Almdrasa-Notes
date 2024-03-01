@@ -28,6 +28,12 @@
   .grid--2-cols {
     grid-template-columns: 25.8rem 100vw;
   }
+  .menue__header {
+    padding-bottom: 2rem;
+    z-index: 2;
+    position: relative;
+    background-color: var(--color-white);
+  }
   .btn-close-menue {
     position: absolute;
     display: flex;
@@ -43,6 +49,7 @@
     width: 100vw;
     padding: 1.9rem 1.6rem;
     z-index: 999;
+    transition: var(--timing-animation);
   }
   .icon-menue,
   .icon-search {
@@ -53,7 +60,12 @@
   }
   .menue__form {
     max-width: initial;
-    margin: 1.3rem 1.6rem;
+    margin: 0 1.6rem;
+    transform: translateY(-100%);
+  }
+  .menue__input {
+    width: 100%;
+    max-width: initial;
   }
   .section-content {
     display: flex;
@@ -71,21 +83,12 @@
   .btn-hide {
     display: none;
   }
-}
-
-/**************************/
-/* BELOW 704px (Smaller tablets) */
-/**************************/
-@media (max-width: 44em) {
-  .content-wrapper__notes {
-    grid-template-columns: 1fr;
-  }
   .notes__index {
     width: 100%;
     min-height: auto;
     border-right: 1px solid transparent;
     padding: 0;
-    display: none;
+    // display: none;
   }
   .note {
     width: 90%;
@@ -93,6 +96,9 @@
   }
   .notes__review {
     margin: 3.9rem 1.6rem;
+  }
+  .content-wrapper__notes {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -115,4 +121,40 @@
 *:focus {
   outline: none;
   box-shadow: 0 0 0 0.3rem rgba(236, 113, 96, 0.5);
+}
+
+// notes index sliding (APPLY NOTES SLIDER)
+.container:has(.shifted) {
+  .section-menue {
+    z-index: 2;
+  }
+  .btn-hide {
+    transform: rotate(180deg);
+    box-shadow: 0 -0.3rem 2rem 0.3rem rgba(236, 112, 96, 0.26);
+  }
+  .content-wrapper__notes {
+    transform: translateX(-32.2rem);
+    width: 100vw;
+  }
+}
+
+// ENABLE SEARCH BUTTON
+.sticky.showSearch {
+  & {
+    height: 12.4rem;
+    background-color: var(--color-gray3);
+  }
+  .menue__header {
+    background-color: transparent;
+  }
+  .menue__form {
+    transform: translateY(25%);
+  }
+}
+
+// ENABLE MENUE BUTTON
+body:has(.menue__nav.show-menue) {
+  .container {
+    transform: translateX(0);
+  }
 }
