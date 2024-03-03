@@ -76,16 +76,17 @@
   .content-wrapper__notes {
     margin: 9.7rem 1.6rem;
   }
-  .content-wrapper__notes {
-    grid-template-columns: auto 1fr;
-  }
+  // .content-wrapper__notes {
+  //   grid-template-columns: auto 1fr;
+  // }
   .btn-add,
   .btn-hide {
     display: none;
   }
   .notes__index {
-    width: 100%;
+    min-width: 100vw;
     min-height: auto;
+    margin-left: 2rem;
     border-right: 1px solid transparent;
     padding: 0;
     // display: none;
@@ -93,12 +94,16 @@
   .note {
     width: 90%;
     margin: 1.6rem;
+    overflow: hidden;
   }
   .notes__review {
     margin: 3.9rem 1.6rem;
+    max-width: 80vw;
+    display: none;
   }
   .content-wrapper__notes {
     grid-template-columns: 1fr;
+    justify-content: center;
   }
 }
 

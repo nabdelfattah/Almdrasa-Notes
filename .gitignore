@@ -23,3 +23,5 @@ package-lock.json
 
 # Ignore ESLint configuration files
 .eslintrc.json
+
+dist/

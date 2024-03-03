@@ -2,7 +2,7 @@
 
 .content-wrapper__notes {
   display: grid;
-  grid-template-columns: 32.2rem 0 auto 1fr;
+  grid-template-columns: 32.2rem 0 1fr auto;
   transition: var(--timing-animation);
   display: none;
 }
@@ -50,6 +50,7 @@
 }
 .note * {
   overflow: hidden;
+  word-wrap: break-word;
 }
 .note--selected {
   background-color: var(--color-gray3);
@@ -104,6 +105,9 @@
   margin: 11.4rem 2.6rem 2.6rem 9.9rem;
   max-width: 60.8rem;
   position: relative;
+}
+.notes__review * {
+  word-wrap: break-word;
 }
 .note-review__note-heading {
   @include mixins.heading1();

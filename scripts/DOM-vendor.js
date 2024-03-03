@@ -1,13 +1,17 @@
 import { getDate } from './helper';
 import { Notes } from './notes';
+import { getStorageData } from './storage';
 
-const notesObj = new Notes([]);
+const notesArr = getStorageData('notes');
+const notesObj = new Notes(notesArr || []);
 
 /// /////////////////////////////////////////////////////////
 /// EXPORTED DOM ELEMENTS
 /// //////////////////////
-const formMenueEl = document.querySelector('.menue__form');
+const inputMenueEl = document.querySelector('.menue__input');
 const navEl = document.querySelector('.menue__nav');
+const addNavLinkEl = document.querySelector('[data-role=new]');
+const notesNavLinkEl = document.querySelector('[data-role=notes]');
 
 const addNoteBlock = document.querySelector('.content-wrapper__add-note');
 const displayNoteBlock = document.querySelector('.content-wrapper__notes');
@@ -18,7 +22,7 @@ const btnAddPinnedNote = document.querySelector('[data-role=addPinned]');
 // ADD NOTE BUTTON
 const btnNew = document.querySelector('.btn-add');
 btnNew.addEventListener('click', () => {
-  document.querySelector('[data-role=new]').click();
+  addNavLinkEl.click();
 });
 
 // APPLY NOTES SLIDER
@@ -50,6 +54,10 @@ btnCloseMenue.addEventListener('click', toggleMenue);
 /// ////////////////
 function getNoteValues() {
   const title = document.getElementById('title').value;
+  if (notesObj.notesArr.some((el) => el.title == title)) {
+    alert('Chose another title for your note, please.🙏🏻');
+    return;
+  }
   const author = document.getElementById('author').value;
   const noteContent = document.getElementById('noteContent').value;
   const time = getDate();
@@ -58,7 +66,7 @@ function getNoteValues() {
       title, author, time, noteContent,
     };
   }
-  return null;
+  alert('Please fill the required inputs.🗒️');
 }
 
 function resetAddNoteForm() {
@@ -71,12 +79,25 @@ function resetAddNoteForm() {
 /// HANDLERS
 /// ////////////
 function searchNotesHandler(e) {
+  if (e.key != 'Enter') {
+    return;
+  }
   e.preventDefault();
-  console.log('you are searching through notes');
+  const title = e.currentTarget.value;
+  const storedNote = notesObj.notesArr.filter((item) => item.title == title);
+  if (!storedNote.length) {
+    alert('This note doesn\'t exist❌');
+    e.currentTarget.value = '';
+    return;
+  }
+  notesNavLinkEl.click();
+  document.querySelector(`[data-id="${storedNote[0].id}"`).click();
+  e.currentTarget.value = '';
 }
 
 function navLinkHandler(e) {
   const linkRole = e.target.dataset.role;
+  if (!linkRole) return;
   switch (linkRole) {
     case 'new':
       displayNoteBlock.style.display = 'none';
@@ -85,6 +106,15 @@ function navLinkHandler(e) {
     case 'notes':
       addNoteBlock.style.display = 'none';
       displayNoteBlock.style.display = 'grid';
+      displayNoteBlock.firstElementChild.style.display = 'block';
+      if (window.innerWidth < 944) {
+        displayNoteBlock.querySelector('.notes__review').style.display = 'none';
+        return;
+      }
+      const firstNote = document.querySelector('.note');
+      if (firstNote) {
+        firstNote.click();
+      }
       break;
   }
   document.querySelector('.menue__link-selected').classList.remove('menue__link-selected');
@@ -95,7 +125,6 @@ function addHandler(e) {
   e.preventDefault();
   const noteValues = getNoteValues();
   if (!noteValues) {
-    alert('Please fill the required inputs.');
     return;
   }
   noteValues.type = 'normal';
@@ -107,15 +136,23 @@ function addPinnedHandler(e) {
   e.preventDefault();
   const noteValues = getNoteValues();
   if (!noteValues) {
-    alert('Please fill the required inputs.');
     return;
   }
   noteValues.type = 'pinned';
   notesObj.addNote(noteValues);
   resetAddNoteForm();
 }
+function renderUserNotes() {
+  const notesArr = getStorageData('notes');
+  if (!notesArr || notesArr.lenght) {
+    addNavLinkEl.click();
+    return;
+  }
+  notesObj.renderNotes(notesArr);
+  notesNavLinkEl.click();
+}
 
 export {
-  formMenueEl, navEl, btnAddNote, btnAddPinnedNote,
-  searchNotesHandler, navLinkHandler, addHandler, addPinnedHandler,
+  inputMenueEl, navEl, btnAddNote, btnAddPinnedNote,
+  searchNotesHandler, navLinkHandler, addHandler, addPinnedHandler, renderUserNotes,
 };
