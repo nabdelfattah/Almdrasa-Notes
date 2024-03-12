@@ -1,13 +1,14 @@
 {
   "name": "note-app",
   "version": "1.0.0",
-  "description": "",
+  "description": "This project involves building a task list application (Note App). You can add new notes to the list, delete specific notes from the list, organize notes by priority, such as \"Notes\" and \"pinned,\" and store the notes on the local host.",
   "scripts": {
     "start": "vite",
     "build": "vite build"
   },
   "keywords": [
     "note",
+    "note app",
     "Task Manager"
   ],
   "author": "Nada W. Abdelfattah",

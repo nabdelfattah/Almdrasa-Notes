@@ -1,6 +1,7 @@
 {
-  "name": "",
-  "short_name": "",
+  "start_url": "/index.html",
+  "name": "Almdrasa Notes",
+  "short_name": "Almdrasa Notes",
   "icons": [
     {
       "src": "/android-chrome-192x192.png",
@@ -10,10 +11,17 @@
     {
       "src": "/android-chrome-512x512.png",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "images/any-144x144.png",
+      "sizes": "144x144",
+      "type": "image/png",
+      "purpose": "any"
     }
   ],
-  "theme_color": "#ffffff",
+  "theme_color": "#ec7160",
   "background_color": "#ffffff",
   "display": "standalone"
 }
